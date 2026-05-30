@@ -15,6 +15,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
+# Định nghĩa hàm demo cách đọc file .txt.
 def load_text_file():
     # Create a temporary text file for demonstration
     with tempfile.NamedTemporaryFile(delete=False, suffix=".txt") as temp_file:
@@ -42,6 +43,7 @@ def load_text_file():
         os.remove(temp_file_path)
 
 
+# Định nghĩa hàm đọc nội dung từ website.
 def web_loader():
     loader = WebBaseLoader(
         "https://en.wikipedia.org/wiki/Web_scraping", bs_kwargs={"parse_only": None}
@@ -54,8 +56,8 @@ def web_loader():
     print(f"Preview: {documents[0].page_content[:200]}...")
 
 
+# Định nghĩa hàm demo cách load nhiều file trong thư mục bằng lazy loading.
 def lazy_loader():
-
     # Create temp directory with sample files
     with tempfile.TemporaryDirectory() as tmpdir:
         # Create sample files
@@ -71,6 +73,7 @@ def lazy_loader():
             print("Metadata:", doc.metadata["source"])
 
 
+# Hàm này demo cấu trúc của một Document trong LangChain.
 def doc_structure():
     doc = Document(
         page_content="This is a sample document.",
@@ -89,6 +92,7 @@ def doc_structure():
     print(f"  metadata: {doc.metadata}")
 
 
+# Định nghĩa hàm đọc PDF.
 def pdf_loader(pdf_path: str):
     loader = PyPDFLoader(pdf_path)
     documents = loader.load()
