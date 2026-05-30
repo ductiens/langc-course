@@ -4,3 +4,4 @@ langgraph
 langchain-openai
 langchain-anthropic
 python-dotenv
+langchain-community
